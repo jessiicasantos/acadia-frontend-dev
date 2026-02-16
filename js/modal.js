@@ -1,4 +1,5 @@
 const modal = document.getElementById('global-modal');
+const overlay = document.getElementById('global-overlay');
 
 const toggleModal = (show = true) => {
     modal.classList.toggle('active', show);

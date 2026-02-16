@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Premium Wireless Headphones",
+      "price": 299.99,
+      "description": "High-fidelity sound featuring active noise cancellation and long-lasting battery life.",
+      "image": "./img/photo-1.jpg",
+      "alt": "Premium Wireless Headphones Baby Pink",
+      "category": "Electronics",
+      "createdAt": "2026-01-15T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Smart Fitness Watch",
+      "price": 249.90,
+      "description": "Comprehensive real-time health and physical activity monitoring.",
+      "image": "./img/photo-2.jpg",
+      "alt": "Smart Fitness Watch with Heart Rate Monitor",
+      "category": "Wearables",
+      "createdAt": "2023-10-27T11:30:00Z"
+    },
+    {
+      "id": "3",
+      "title": "Professional Camera Kit",
+      "price": 1299.99,
+      "description": "The ultimate complete kit for photographers seeking perfection in every shot.",
+      "image": "./img/photo-3.jpg",
+      "alt": "Professional Camera Kit with Lens and Tripod",
+      "category": "Electronics",
+      "createdAt": "2023-10-27T11:30:00Z"
+    }
+  ],
+  "categories": [
+    "Electronics",
+    "Wearables",
+    "Accessories"
+  ]
+}
