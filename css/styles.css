@@ -144,6 +144,144 @@ a {
     margin-bottom: 1.5rem;
 }
 
+/* --- REGRA DE GRID --- */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.grid-three-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+/* --- CARDS (Arredondados) --- */
+.rounded-card {
+    background: var(--bg-light);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--kroger-shadow);
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.rounded-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.img-wrapper {
+    max-height: 300px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.rounded-card > .img-wrapper > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+    transition: transform 0.5s ease;
+}
+
+.rounded-card:hover > .img-wrapper > img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+/* Lógica de Ellipsis (Reticências) */
+.card-content > h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-blue);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.card-content > p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 10px 0 20px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-footer > span {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #111;
+}
+
+.add-cart {
+    position: relative;
+    background-color: var(--action-yellow);
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+    z-index: 2;
+}
+
+.add-cart:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 53, 128, 0.2);
+    transform: translateY(-1px);
+}
+
+.add-cart:active {
+    transform: scale(0.95);
+}
+
+.add-cart.added {
+    background-color: var(--primary-blue);
+    color: white;
+    cursor: default;
+    box-shadow: 0 4px 12px rgba(0, 53, 128, 0.2);
+}
+
+
 @media (min-width: 768px) {
     .navbar {
         padding: 0.8rem 2rem;
@@ -159,5 +297,15 @@ a {
         width: auto;
         flex-grow: 1;
         margin-top: 0;
+    }
+    
+    .grid-three-col { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-three-col { 
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
