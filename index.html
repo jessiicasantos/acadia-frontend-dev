@@ -101,10 +101,25 @@
                 <input type="number" id="form-price" step="0.01" required>
             </div>
 
-            <button type="submit" class="btn-yellow buy">Adicionar Produto</button>
+            <button type="submit" class="buy btn-yellow ">Adicionar Produto</button>
         </form>
       </div>
     </div>
+
+    <!-- Cart -->
+    <aside id="side-cart" class="side-cart">
+      <div class="cart-header">
+        <h2>Meu Carrinho</h2>
+        <button id="close-cart" class="btn-close">&times;</button>
+      </div>
+      <div id="cart-items" class="cart-items">
+        <p>Seu carrinho está vazio.</p>
+      </div>
+      <div class="cart-footer">
+        <span class="total"> Total: <em>$0.00</em> </span>
+        <button class="buy btn-yellow">Finalizar Compra</button>
+      </div>
+    </aside>
     
     <div class="ui-overlay" id="global-overlay"></div>
 

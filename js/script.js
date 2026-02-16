@@ -1,13 +1,15 @@
+const cart = document.getElementById('side-cart');
 const overlay = document.getElementById('global-overlay');
 const closeBtn = document.getElementById('close-cart');
-
 const btnAddCart = document.querySelectorAll('.add-cart');
 
 function openCart() {
+    cart.classList.add('open');
     overlay.classList.add('active');
 }
 
 function closeCart() {
+    cart.classList.remove('open');
     overlay.classList.remove('active');
 }
 
