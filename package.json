@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "api": "json-server --watch api/db.json",
+    "ws": "ws --spa index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "zod": "^4.3.6"
+  }
 }

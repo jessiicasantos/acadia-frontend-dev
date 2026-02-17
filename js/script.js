@@ -29,8 +29,13 @@ btnAddCart.forEach(btn => {
 closeBtn.addEventListener('click', closeCart);
 overlay.addEventListener('click', closeCart);
 
-
 const productsGrid = document.getElementById('products-grid-top');
+
+// Coin formatter (USD)
+const currencyFormatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD'
+});
 
 async function loadProducts() {
   try {

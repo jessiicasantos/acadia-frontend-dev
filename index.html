@@ -11,7 +11,7 @@
       <a href="./" class="logo">Product Store</a>
       <div class="light-search">
         <input type="text" placeholder="Buscar produtos..." id="product-search">
-        <button class="btn-search btn-yellow">Buscar</button>
+        <button class="btn-search btn-yellow">Search</button>
       </div>
       <button class="cart-icon" id="cart-icon">
         🛒 <span>0</span>
@@ -33,28 +33,35 @@
     <!-- Modal -->
     <div class="ui-modal modal-product add-modal" id="global-modal">
       <div class="global-header">
-          <h2 id="modal-title">Novo Produto</h2>
+          <h2 id="modal-title">New Product</h2>
           <button type="button" class="btn-close" id="close-modal">&times;</button>
       </div>
       <div class="ui-modal-content">
         <form id="product-form" class="card-content">
             <div class="form-group">
-                <label>Título do Produto</label>
-                <input type="text" id="form-title" required>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Title" required minlength="3">
+                <p class="error" id="error-title"></p>
             </div>
             <div class="form-group">
-                <label>Imagem</label>
-                <input type="file" id="form-img" accept="image/*" required>
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <p class="error" id="error-image"></p>
             </div>
             <div class="form-group">
-                <label>Descrição</label>
-                <textarea id="form-desc" rows="3" required></textarea>
+                <label for="description">Description</label>
+                <textarea id="description" name="description"  rows="3" placeholder="Descrição do produto" required minlength="10"></textarea>
+                <p class="error" id="error-description"></p>
             </div>
             <div class="form-group">
-                <label>Preço</label>
-                <input type="number" id="form-price" step="0.01" required>
+                <label for="price">Price</label>
+                <div class="input-wrapper">
+                  <span class="currency-prefix">$</span>
+                  <input type="text" id="price" name="price" placeholder="10.00" required>
+                </div>
+                <p class="error" id="error-price"></p>
             </div>
-            <button type="submit" class="buy btn-yellow ">Adicionar Produto</button>
+            <button type="submit" class="buy btn-yellow ">Add Product</button>
         </form>
       </div>
     </div>
@@ -62,20 +69,27 @@
     <!-- Cart -->
     <aside id="side-cart" class="side-cart">
       <div class="cart-header">
-        <h2>Meu Carrinho</h2>
+        <h2>My Cart</h2>
         <button id="close-cart" class="btn-close">&times;</button>
       </div>
       <div id="cart-items" class="cart-items">
-        <p>Seu carrinho está vazio.</p>
+        <p>Your cart is empty.</p>
       </div>
       <div class="cart-footer">
         <span class="total"> Total: <em>$0.00</em> </span>
-        <button class="buy btn-yellow">Finalizar Compra</button>
+        <button class="buy btn-yellow">Buy</button>
       </div>
     </aside>
     
     <div class="ui-overlay" id="global-overlay"></div>
 
+    <script type="importmap">
+      {
+        "imports": {
+          "zod": "https://esm.sh/zod"
+        }
+      }
+    </script>
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="./js/modal.js"></script>
   </body>
