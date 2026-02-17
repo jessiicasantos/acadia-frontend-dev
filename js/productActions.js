@@ -12,10 +12,12 @@ export const handleProductSubmission = async (formData, imgFile) => {
 
     const validation = productSchema.safeParse(rawData); 
 
-    if (!validation.success) {
-        const firstError = validation.error.issues[0].message;
-        throw new Error(firstError);
-    }
+if (!validation.success) {
+    throw { 
+        isValidationError: true, 
+        errors: validation.error.flatten().fieldErrors 
+    };
+}
 
     let imageBase64 = null;
     if (imgFile) {

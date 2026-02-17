@@ -39,7 +39,14 @@ form.addEventListener('submit', async (event) => {
         toggleModal(false);
         window.location.reload();
     } catch (error) {
-        errorSpan.textContent = error.message;
+       if (error.isValidationError) {
+            Object.entries(error.errors).forEach(([field, messages]) => {
+                const el = document.getElementById(`error-${field}`);
+                if (el) el.textContent = messages[0];
+            });
+        } else {
+            alert(error.message || "An unexpected error occurred");
+        }
     } finally {
         toggleBtnLoad(submitBtn, false);
     }
