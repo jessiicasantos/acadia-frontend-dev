@@ -15,27 +15,24 @@ function closeCart() {
   overlay.classList.remove('active');
 }
 
-btnAddCart.forEach(btn => {
-  btn.addEventListener('click', (event) => {
-    event.preventDefault();
-    
-    btn.classList.toggle('added');
-    btn.textContent = btn.classList.contains('added') ? 'Added' : 'Add';
-    
-    openCart();
-  });
+const productsGrid = document.getElementById('products-grid-top');
+
+productsGrid.addEventListener('click', (event) => {
+  const btnCart = event.target.closest('.add-cart');
+
+  if(!btnCart) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  btnCart.classList.toggle('added')
+  btnCart.textContent = btnCart.classList.contains('added') ? 'Added' : 'Add';
+
+  openCart();
 });
 
 closeBtn.addEventListener('click', closeCart);
 overlay.addEventListener('click', closeCart);
-
-const productsGrid = document.getElementById('products-grid-top');
-
-// Coin formatter (USD)
-const currencyFormatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-});
 
 async function loadProducts() {
   try {
