@@ -12,5 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4",
+    "local-web-server": "^5.4.0"
   }
 }
