@@ -183,10 +183,19 @@ input[type="file"]::file-selector-button:hover {
     opacity: 0.7;
 }
 
-.error {
+.error,
+.error-form {
     color: #d9534f;
     font-weight: 600;
     font-size: 1rem;
+}
+
+.error {
+    display: none;
+}
+
+.error.open {
+    display: block;
 }
 
 /* Navbar */

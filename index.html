@@ -28,6 +28,7 @@
       <section id="products-grid-top" class="grid-three-col rounded-cards">
         <!-- Cards of products will be rendered here -->
       </section>
+      <p class="error error-product">Product not found.</p>
     </main>
 
     <!-- Modal -->
@@ -41,17 +42,17 @@
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" placeholder="Title" required minlength="3">
-                <p class="error" id="error-title"></p>
+                <p class="error-form" id="error-title"></p>
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" accept="image/*" required>
-                <p class="error" id="error-image"></p>
+                <p class="error-form" id="error-image"></p>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea id="description" name="description"  rows="3" placeholder="Descrição do produto" required minlength="10"></textarea>
-                <p class="error" id="error-description"></p>
+                <p class="error-form" id="error-description"></p>
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
@@ -59,7 +60,7 @@
                   <span class="currency-prefix">$</span>
                   <input type="text" id="price" name="price" placeholder="10.00" required>
                 </div>
-                <p class="error" id="error-price"></p>
+                <p class="error-form" id="error-price"></p>
             </div>
             <button type="submit" class="buy btn-yellow ">Add Product</button>
         </form>

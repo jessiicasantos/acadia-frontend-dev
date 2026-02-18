@@ -6,14 +6,17 @@ const modal = document.getElementById('global-modal');
 const overlay = document.getElementById('global-overlay');
 const form = document.getElementById('product-form');
 const priceInput = document.getElementById('price');
-const errorSpan = document.querySelector('.error');
+const errorsSpan = document.querySelectorAll('.error-form');
 
 const toggleModal = (show = true) => {
     modal.classList.toggle('active', show);
     overlay.classList.toggle('active', show);
     if (!show) {
         form.reset();
-        errorSpan.textContent = '';
+
+        errorsSpan.forEach(span => {
+            span.textContent = '';
+        });
     }
 };
 
@@ -31,13 +34,19 @@ form.addEventListener('submit', async (event) => {
     const formData = new FormData(form);
     const imgFile = form.querySelector('input[type="file"]').files[0];
 
-    try {
-        toggleBtnLoad(submitBtn, true); 
+    errorsSpan.forEach(span => {
+        span.textContent = '';
+    })
 
-        await handleProductSubmission(formData, imgFile);
+    try {
+        toggleBtnLoad(submitBtn, true);
+        
+        const newProduct = await handleProductSubmission(formData, imgFile);
+
+        const eventUpdate = new CustomEvent('productAdded', { detail: newProduct });
+        window.dispatchEvent(eventUpdate);
         
         toggleModal(false);
-        window.location.reload();
     } catch (error) {
        if (error.isValidationError) {
             Object.entries(error.errors).forEach(([field, messages]) => {
