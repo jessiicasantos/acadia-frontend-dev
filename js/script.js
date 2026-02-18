@@ -31,7 +31,7 @@ function createProductCard(product) {
           <p>${product.description}</p>
           <div class="card-footer">
           <span>$${Number(product.price).toFixed(2)}</span>
-          <button class="add-cart">Add</button>
+          <button class="add-cart">+ Add to Cart</button>
           </div>
         </div>
       </a>
@@ -92,7 +92,7 @@ function createProductCard(product) {
 
     btnCart.classList.toggle('added');
     const isAdded = btnCart.classList.contains('added')
-    btnCart.textContent = isAdded ? 'Added' : 'Add';
+    btnCart.textContent = isAdded ? 'Added' : '+ Add to Cart';
 
     const card = btnCart.closest('.rounded-card');
     card.classList.toggle('card-active', isAdded);

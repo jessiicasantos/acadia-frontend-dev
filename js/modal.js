@@ -1,12 +1,13 @@
 import { handleProductSubmission } from './productActions.js';
-import { maskCurrency } from './utils.js';
-import { toggleBtnLoad } from './ui-utils.js';
+import { maskCurrency, toggleBtnLoad } from './utils.js';
 
 const modal = document.getElementById('global-modal');
 const overlay = document.getElementById('global-overlay');
 const form = document.getElementById('product-form');
 const priceInput = document.getElementById('price');
 const errorsSpan = document.querySelectorAll('.error-form');
+const btnAddSample = document.getElementById('add-sample-btn');
+const btnCloseModal = document.getElementById('close-modal');
 
 const toggleModal = (show = true) => {
     modal.classList.toggle('active', show);
@@ -20,11 +21,13 @@ const toggleModal = (show = true) => {
     }
 };
 
-// UI Listeners
-priceInput.addEventListener('input', (e) => e.target.value = maskCurrency(e.target.value));
-document.getElementById('add-sample-btn').addEventListener('click', () => toggleModal(true));
-document.getElementById('close-modal').addEventListener('click', () => toggleModal(false));
+// Modal Listeners
+btnAddSample.addEventListener('click', () => toggleModal(true));
+btnCloseModal.addEventListener('click', () => toggleModal(false));
 overlay.addEventListener('click', () => toggleModal(false));
+
+// Price Input Listener
+priceInput.addEventListener('input', (e) => e.target.value = maskCurrency(e.target.value));
 
 // Submit
 form.addEventListener('submit', async (event) => {
@@ -36,7 +39,7 @@ form.addEventListener('submit', async (event) => {
 
     errorsSpan.forEach(span => {
         span.textContent = '';
-    })
+    });
 
     try {
         toggleBtnLoad(submitBtn, true);

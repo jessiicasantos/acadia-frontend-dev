@@ -4,8 +4,7 @@
   "description": "Responsive Product Card",
   "main": "index.js",
   "scripts": {
-    "api": "json-server --watch api/db.json",
-    "ws": "ws --spa index.html",
+    "start": "ws --spa index.html && json-server --watch api/db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

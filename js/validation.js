@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const LIMITS = {
     MIN_PRICE: 0.50,
-    MAX_PRICE: 999999.99,
+    MAX_PRICE: 99999.99,
     MAX_FILE_SIZE: 2 * 1024 * 1024
 };
 
