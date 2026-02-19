@@ -4,7 +4,7 @@
   "description": "Responsive Product Card",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch api/db.json --static ./public --port $PORT",
+    "start": "json-server --watch api/db.json --static ./public --port $PORT --host 0.0.0.0",
     "dev": "json-server --watch api/db.json --static ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
