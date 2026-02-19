@@ -317,6 +317,7 @@ input[type="file"]::file-selector-button:hover {
     display: flex;
     flex-direction: column;
     height: 100%; 
+    pointer-events: none;
 }
 
 .rounded-card:hover {
@@ -413,6 +414,7 @@ input[type="file"]::file-selector-button:hover {
     cursor: pointer;
     transition: transform 0.1s;
     z-index: 2;
+    pointer-events: initial;
 }
 
 .add-cart:hover {

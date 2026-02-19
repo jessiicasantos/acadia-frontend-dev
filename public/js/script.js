@@ -22,7 +22,7 @@ function closeCart() {
 // Render product card
 function createProductCard(product) {
     return `
-      <a href="./single-product.html?id=${product.id}" class="rounded-card" data-title="${product.title.toLowerCase()}">
+      <a href="#" class="rounded-card" data-title="${product.title.toLowerCase()}">
         <div class="img-wrapper">
           <img src="${product.image || './img/photo-1.jpg'}" alt="${product.alt}" />
         </div>
