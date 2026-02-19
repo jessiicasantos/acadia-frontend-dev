@@ -1,4 +1,4 @@
-import productService from './api.js';
+import productService from './productService.js';
 
 const cart = document.getElementById('side-cart');
 const overlay = document.getElementById('global-overlay');

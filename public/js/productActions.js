@@ -1,6 +1,6 @@
-import productService from './api.js';
+import productService from './productService.js';
 import { fileToBase64 } from './utils.js';
-import { productSchema } from './validation.js';
+import { productSchema } from './productValidation.js';
 
 export const handleProductSubmission = async (formData, imgFile) => {
     const rawData = {
@@ -13,10 +13,10 @@ export const handleProductSubmission = async (formData, imgFile) => {
     const validation = productSchema.safeParse(rawData); 
 
     if (!validation.success) {
-        throw new Error({ 
+        throw { 
             isValidationError: true, 
             errors: validation.error.flatten().fieldErrors 
-        });
+        };
     }
 
     let imageBase64 = null;
