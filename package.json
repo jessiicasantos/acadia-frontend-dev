@@ -4,7 +4,8 @@
   "description": "Responsive Product Card",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch api/db.json && ws --spa --port $PORT --hostname 0.0.0.0 index.html",
+    "start": "json-server --watch api/db.json --static ./public --port $PORT",
+    "dev": "json-server --watch api/db.json --static ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,7 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.17.4",
-    "local-web-server": "^5.4.0",
     "zod": "^4.3.6"
   }
 }

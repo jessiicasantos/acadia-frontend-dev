@@ -1,10 +1,8 @@
-const BASE_URL = 'http://localhost:3000';
-
 const productService = {
     // Get products
     async getProducts() {
         try {
-            const response = await fetch(`${BASE_URL}/products`);
+            const response = await fetch(`/products`);
 
             if(!response.ok) {
                 throw new Error(`HTTP Error: ${response.status}`);
@@ -20,7 +18,7 @@ const productService = {
     // Create new product
     async createProduct(productData) {
         try {
-            const response = await fetch(`${BASE_URL}/products`, {
+            const response = await fetch(`/products`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

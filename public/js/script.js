@@ -6,7 +6,7 @@ const closeBtn = document.getElementById('close-cart');
 const productsGrid = document.getElementById('products-grid-top');
 const searchInput = document.getElementById('product-search');
 const searchBtn = document.querySelector('.btn-search');
-let error = document.querySelector('.error-product');
+const error = document.querySelector('.error-product');
 
 // Sidebar
 function openCart() {
@@ -70,8 +70,6 @@ function createProductCard(product) {
         
         if(!hasResults) {
           error.classList.add('open');
-        } else {
-          error.classList.remove('open');
         }
       });
 
@@ -94,7 +92,7 @@ function createProductCard(product) {
 
     btnCart.classList.toggle('added');
     const isAdded = btnCart.classList.contains('added')
-    btnCart.textContent = isAdded ? 'Added' : '+ Add to Cart';
+    btnCart.textContent = isAdded ? '✓ Added' : '+ Add to Cart';
 
     const card = btnCart.closest('.rounded-card');
     card.classList.toggle('card-active', isAdded);
@@ -110,7 +108,7 @@ function createProductCard(product) {
     tempDiv.innerHTML = createProductCard(newProduct);
     const newCard = tempDiv.firstElementChild;
 
-    productsGrid.prepend(newCard);
+    productsGrid.append(newCard);
     newCard.scrollIntoView({ behavior: 'smooth' });
   });
 
