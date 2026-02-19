@@ -41,24 +41,24 @@
         <form id="product-form" class="card-content">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="Title" required minlength="3">
+                <input type="text" id="title" name="title" placeholder="Title">
                 <p class="error-form" id="error-title"></p>
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" id="image" name="image" accept="image/*" required>
+                <input type="file" id="image" name="image" accept="image/*">
                 <p class="error-form" id="error-image"></p>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description"  rows="3" placeholder="Product Description" required minlength="10"></textarea>
+                <textarea id="description" name="description"  rows="3" placeholder="Product Description"></textarea>
                 <p class="error-form" id="error-description"></p>
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
                 <div class="input-wrapper">
                   <span class="currency-prefix">$</span>
-                  <input type="text" id="price" name="price" placeholder="10.00" required>
+                  <input type="text" value="0.00" id="price" name="price" placeholder="10.00">
                 </div>
                 <p class="error-form" id="error-price"></p>
             </div>
