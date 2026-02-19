@@ -1,8 +1,10 @@
+const BASE_URL = window.location.origin;
+
 const productService = {
     // Get products
     async getProducts() {
         try {
-            const response = await fetch(`/products`);
+            const response = await fetch(`${BASE_URL}/products`);
 
             if(!response.ok) {
                 throw new Error(`HTTP Error: ${response.status}`);
@@ -18,7 +20,7 @@ const productService = {
     // Create new product
     async createProduct(productData) {
         try {
-            const response = await fetch(`/products`, {
+            const response = await fetch(`${BASE_URL}/products`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
