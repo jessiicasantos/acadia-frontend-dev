@@ -70,6 +70,8 @@ function createProductCard(product) {
         
         if(!hasResults) {
           error.classList.add('open');
+        } else {
+          error.classList.remove('open');
         }
       });
 
