@@ -36,6 +36,7 @@ button {
     outline: 0;
     background: initial;
     cursor: pointer;
+    color: #000;
 }
 
 a {
@@ -405,7 +406,6 @@ input[type="file"]::file-selector-button:hover {
 .add-cart {
     position: relative;
     background-color: var(--action-yellow);
-    color: #000;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 50px;
