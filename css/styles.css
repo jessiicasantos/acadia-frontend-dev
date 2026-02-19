@@ -346,6 +346,10 @@ input[type="file"]::file-selector-button:hover {
     transform: scale(1.1);
 }
 
+.card-active {
+    border-color: var(--primary-blue);
+}
+
 .card-content {
     padding: 1.2rem;
     display: flex;
