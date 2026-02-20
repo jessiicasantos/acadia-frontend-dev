@@ -6,9 +6,12 @@ export const fileToBase64 = (file) => new Promise((resolve, reject) => {
 });
 
 export const maskCurrency = (value) => {
-    let v = value.replace(/\D/g, '');
-    v = (v / 100).toFixed(2);
-    return v === "0.00" ? "" : v;
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    })
+
+    return formatter.format(value);
 };
 
 export const toggleBtnLoad = (button, isLoading, loadingText = 'Loading...', originalText) => {

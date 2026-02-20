@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const LIMITS = {
-    MIN_PRICE: 0.50,
+    MIN_PRICE: 1.00,
     MAX_PRICE: 99999.99,
     MAX_FILE_SIZE: 2 * 1024 * 1024,
     ACCEPTED_IMAGE_TYPES: ["image/jpeg", "image/jpg", "image/png", "image/webp"]
@@ -14,7 +14,7 @@ export const productSchema = z.object({
     description: z.string()
         .min(10, "Description is too short (minimum 10 characters)")
         .max(200, "Description cannot exceed 200 characters"),
-    price: z.number()
+    price: z.number({ error: "Please, insert a price" })
         .min(LIMITS.MIN_PRICE, `Price must be at least $${LIMITS.MIN_PRICE.toFixed(2)}`)
         .max(LIMITS.MAX_PRICE, `Price cannot exceed $${LIMITS.MAX_PRICE}`),
     image: z.file({ error: "Please, insert an image" })

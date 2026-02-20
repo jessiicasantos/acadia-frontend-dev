@@ -27,7 +27,7 @@ btnCloseModal.addEventListener('click', () => toggleModal(false));
 overlay.addEventListener('click', () => toggleModal(false));
 
 // Price Input Listener
-priceInput.addEventListener('input', (e) => e.target.value = maskCurrency(e.target.value));
+priceInput.addEventListener('input', (e) => maskCurrency(e.target.value));
 
 // Submit
 form.addEventListener('submit', async (event) => {
@@ -48,7 +48,7 @@ form.addEventListener('submit', async (event) => {
 
         const eventUpdate = new CustomEvent('productAdded', { detail: newProduct });
         window.dispatchEvent(eventUpdate);
-        
+
         toggleModal(false);
     } catch (error) {
        if (error.isValidationError) {

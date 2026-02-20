@@ -74,8 +74,6 @@ function createProductCard(product) {
           error.classList.remove('open');
         }
       });
-
-
   };
 
   // --- Event Listeners ---
