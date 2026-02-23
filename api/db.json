@@ -6,7 +6,7 @@
       "price": 299.99,
       "description": "High-fidelity sound featuring active noise cancellation and long-lasting battery life.",
       "image": "./img/wireless-headphone-baby-pink.png",
-      "alt": "...",
+      "alt": "Professional Camera Kit with Lens and Tripod",
       "createdAt": "2026-01-15T10:00:00Z"
     },
     {
@@ -27,5 +27,5 @@
       "alt": "Professional Camera Kit with Lens and Tripod",
       "createdAt": "2023-10-27T11:30:00Z"
     }
-  ] 
+  ]
 }
