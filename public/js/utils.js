@@ -6,12 +6,18 @@ export const fileToBase64 = (file) => new Promise((resolve, reject) => {
 });
 
 export const maskCurrency = (value) => {
+    const numericValue = typeof value === 'string' ? parseFloat(value.replace(/\D/g, "")) / 100 : value;
+
+    if(isNaN(numericValue)) return "$ 0.00";
+
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
-    })
+    }).format(value);
 
-    return formatter.format(value);
+    const spaceFormatted = formatter.replace('$', '$ ');
+
+    return spaceFormatted;
 };
 
 export const toggleBtnLoad = (button, isLoading, loadingText = 'Loading...', originalText) => {

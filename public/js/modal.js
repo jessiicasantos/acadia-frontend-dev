@@ -26,8 +26,15 @@ btnAddSample.addEventListener('click', () => toggleModal(true));
 btnCloseModal.addEventListener('click', () => toggleModal(false));
 overlay.addEventListener('click', () => toggleModal(false));
 
-// Price Input Listener
-priceInput.addEventListener('input', (e) => maskCurrency(e.target.value));
+
+// Price Input Mask Currency Listener
+priceInput.addEventListener('input', (e) => {
+    const inputTarget = e.target;
+    const rawValue = inputTarget.value.replace(/\D/g, '');
+    const numericVal = rawValue ? parseFloat(rawValue) / 100 : 0;
+
+    inputTarget.value = maskCurrency(numericVal);
+});
 
 // Submit
 form.addEventListener('submit', async (event) => {
@@ -37,6 +44,15 @@ form.addEventListener('submit', async (event) => {
     const formData = new FormData(form);
     const imgFile = form.querySelector('input[type="file"]').files[0];
 
+    // Sanitize currency string: convert formatted UI value back to numeric type
+    const rawPrice = form.querySelector('#price').value;
+    const numericString = parseFloat(rawPrice.replace(/[^0-9.]/g, ''));
+
+    const numericValue = numericString !== '' ? parseFloat(numericString) : undefined;
+
+    formData.set('price', numericValue);
+
+    // Reset errors message
     errorsSpan.forEach(span => {
         span.textContent = '';
     });
