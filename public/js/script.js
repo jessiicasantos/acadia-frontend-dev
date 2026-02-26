@@ -1,5 +1,6 @@
 import { maskCurrency } from './utils.js';
 import productService from './productService.js';
+import { cartActions } from './cart.js';
 
 const cart = document.getElementById('side-cart');
 const overlay = document.getElementById('global-overlay');
@@ -9,21 +10,10 @@ const searchInput = document.getElementById('product-search');
 const searchBtn = document.querySelector('.btn-search');
 const error = document.querySelector('.error-product');
 
-// Sidebar
-function openCart() {
-  cart.classList.add('open');
-  overlay.classList.add('active');
-}
-
-function closeCart() {
-  cart.classList.remove('open');
-  overlay.classList.remove('active');
-}
-
 // Render product card
 function createProductCard(product) {
   return `
-    <a href="#" class="rounded-card" data-title="${product.title.toLowerCase()}">
+    <a href="#" class="rounded-card" data-id="${product.id}" data-title="${product.title.toLowerCase()}">
       <div class="img-wrapper">
         <img src="${product.image || './img/photo-1.jpg'}" alt="${product.alt}" />
       </div>
@@ -83,22 +73,33 @@ searchBtn.addEventListener('click', performSearch);
 
 // Button add to Cart Interaction
 productsGrid.addEventListener('click', (event) => {
-  const btnCart = event.target.closest('.add-cart');
-
-  if(!btnCart) return;
-
   event.preventDefault();
-  event.stopPropagation();
+
+  const btnCart = event.target.closest('.add-cart');
+  if(!btnCart) return;
+  const card = btnCart.closest('.rounded-card');
+
+  const productData = {
+    id: card.dataset.id,
+    title: card.querySelector('h3').textContent,
+    price: parseFloat(card.querySelector('.card-footer span').textContent.replace(/[^0-9.]/g, '')),
+    image: card.querySelector('img').src
+  };
 
   btnCart.classList.toggle('added');
-  const isAdded = btnCart.classList.contains('added')
+  const isAdded = btnCart.classList.contains('added');
   btnCart.textContent = isAdded ? '✓ Added' : '+ Add to Cart';
 
-  const card = btnCart.closest('.rounded-card');
   card.classList.toggle('card-active', isAdded);
 
-  openCart();
+  cartActions.toggleItem(productData, isAdded);
+  if(isAdded) cartActions.open();
 });
+
+// Close Sidebar
+function closeCart() {
+  cartActions.close();
+}
 
 // Product Event Listener
 window.addEventListener('productAdded', (event) => {

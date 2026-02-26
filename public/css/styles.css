@@ -1,5 +1,6 @@
 :root {
     /* Colors */
+    --primary-black: #2d3436;
     --primary-blue: #003580;
     --primary-blue-hover: #00265c;
     --action-yellow: #ffc107;
@@ -456,9 +457,74 @@ input[type="file"]::file-selector-button:hover {
     overflow-y: auto;
 }
 
+.cart-items > p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #0035808c;
+    text-align: left;
+}
+
+.cart-item-info {
+    margin: 0 auto 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cart-item-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-black);
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cart-item-info span {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background: #00358045;
+}
+
 .cart-footer {
     padding: 1.5rem;
-    border-top: 1px solid #eee;
+    background: #fff;
+    border-top: 2px solid #eee;
+    margin-top: auto;
+}
+
+.cart-footer .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-black);
+}
+
+.cart-footer .total em {
+    font-style: normal;
+    font-size: 1.4rem;
+    font-weight: 800;
 }
 
 .buy {
@@ -466,6 +532,21 @@ input[type="file"]::file-selector-button:hover {
     border-radius: var(--radius-md);
     font-weight: 700;
     margin-top: 1rem;
+    color: var(--text-dark);
+}
+
+.buy:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    cursor: not-allowed;
+    color: inherit;
+    transform: none;
+    box-shadow: none;
+}
+
+.buy:disabled:hover {
+    background: var(--action-yellow);
+    color: inherit;
 }
 
 /* Carrinho Lateral */
