@@ -1,4 +1,4 @@
-# acadia-frontend-dev - Frontend Assessment
+# acadia-frontend-dev - Frontend
 Responsive product management dashboard built with JavaScript, focusing on performance, mobile-first design, and DOM manipulation.
 
 ![alt text](image.png)
